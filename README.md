@@ -82,3 +82,16 @@ Uygulamanın çalışır haline son sağlıklı commite giderek ulaşabiliriz. H
 
 ### 11-) Backend uygulamanın testlerini neyle yazarız? Sen test yazarken ne kullanıyorsun? (Burada test yazmak hakkında ne düşündüğüm ölçüldü bence) <br/> 
 JUnit, Java'da en çok kullanılan test frameworkü. Ben de uygulamalarımı JUnit kullanarak yazıyorum. Anotasyon bazlı testler yapılabilir, her testten önce ve sonrasında ne yapılacağı belirlenebilir. JUnit bu geliştirmeleri kolaylastiriyor ve sadece business-logic'e bağlı kalmamızı sağlıyor. <br/>
+
+### 12-) Transaction Nedir?
+Transactionlar bir işlemler bütününü ifade eder. Veritabanlarındaki Transaction, Insert,Update gibi sorguların herhangi birinde hata çıkması halinde, o işlemin ROLLBACK edilmesini sağlar. Transactiondaki operasyonların her birinin(Insert,Update) gibi işlemlerin başarılı olması halinde ise Transaciton'ı commitler. Bu sayede ACID kavramı da sağlanmış olur.
+A. Atomicy: Tüm işlemler başarılı olduğu taktirde Transaction onaylanır. Bu Bölünmezliği sağlar.
+C. Consistency: Tutarlılık, Transaction tamamlanana ve commit edilene kadar karşımıza çıkan değerler aynıdır. Ancak transaction bitince etkilenir ve değişir. Bu da tutarlılığı sağlar.
+I. Isolation: Dış müdahaleye kapalıdır. Başka bir transaction'dan etkilenmez. Kendini bu sayede izole eder.
+D. Durability: ROLLBACK yapan mekanizmadır. 
+
+### 13-) AOP Nedir?
+Aspect Oriented Programming bir programlama paradigmasıdır. Bu paradigmayla, tekrar eden kod kalabalığının önüne geçilmesi ve kodun maliyetinin düşürülmesi hedeflenmektedir. <br/>
+Cross Cutting Concern nedir? <br/>
+Uygulamanın herhangi bir bölümünde ``` logging, performance, transaction management, security, caching, validation, exception handling``` gibi işlemler gerçekleştirilebilir. CCC, o bölgelerden bağımsız olarak bu tarz sürekli kullanılan kod bloklarının işlemlerini gerçekleştirir. <br/>
+AOP ise, CCC uygulayan bir paradigmadır. <br/>
