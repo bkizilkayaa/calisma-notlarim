@@ -115,3 +115,18 @@ Her defasında bir bağımlılığa sahip olan servis içerisinden ```new``` key
 Application Context'te oluşturulan Bean instance'ını tekrar tekrar kullanabilir ve inject edebiliriz. <br/>
 Oluşturma ve yönetme işi IoC Container sorumluluğundayken, Inject etme yöntemleri Dependency Injection sorumluluğundadır. <br/>
 
+### 17-) @Controller ile @RestController Anotasyonu arasındaki fark nedir? <br/>
+@Controller anotasyonu ile Html ve statik sayfalarla çalışabileceğimizi belirtiyorken (DispatcherServlet), <br/>
+@RestController anotasyonu ile RESTful web servisler dönebiliyoruz. (Json formatta veriyi döner, ResponseBody içerisinde) <br/>
+
+### 18-) DispatcherServlet Nasıl çalışır? <br/>
+DispatcherServlet, HTTP isteklerini bekler ve handle eder. Gelen bu ilk isteği handlerMapping karşılar. handlerMapping, bu HTTP isteğinin hangi modelle (Entity) ile çalışacağını tespit eder. <br/>
+Ardından handlerAdapter, hangi HTTP metodun çalıştırılacağını "HEADER" kısmından okur, gerekli metotları çalıştırır ve en son gereken sonuç response adı altında dönülür <br/>
+RestController'a gelen isteği debug ettiğimde aslında çokça uzun bir süreç çıkıyor karşıma fakat bu şekilde özetlenebilir. Her şeyi bilemeyiz. Çok fazla class'ta doğrulamalar vsvs. yapılıyor çünkü.. <br/>
+
+### 19-) Maven vs Gradle? Farkları nelerdir? <br/>
+Öncelikle Maven ve Gradle, build toollardır. Bu build toollar günün sonunda aynı işleri yaparlar. Configurasyon dosyamızdaki kodları okurlar, uzak sunucudan gereken bağımlılığı projemizde kullanılmak üzere indirirler. <br/>
+Bize de bu bağımlılıkları kullanıp ortaya ürün çıkartmak kısmı kalır. <br/>
+Maven, Gradle'a göre daha eski bir build tool olduğu için şuan daha yavaş build etmesine rağmen daha çok kullanılıyor. <br/>
+Maven xml, Gradle ise JSON olarak configleri tutuyor. <br/>
+Maven build edilirken her şeyi silip en baştan yüklemeye çalıştığı için daha uzun süreler boyunca beklememizi gerektiriyorken, Gradle, cache mekanizması sayesinde sadece değişikliklerin yapıldığı kısımları build ederek zamandan tasarruf sağlıyor. Bunu Virtual DOM muhabbetine benzetebiliriz bence. <br/>
