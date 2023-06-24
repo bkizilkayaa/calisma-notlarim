@@ -130,3 +130,27 @@ Bize de bu bağımlılıkları kullanıp ortaya ürün çıkartmak kısmı kalı
 Maven, Gradle'a göre daha eski bir build tool olduğu için şuan daha yavaş build etmesine rağmen daha çok kullanılıyor. <br/>
 Maven xml, Gradle ise JSON olarak configleri tutuyor. <br/>
 Maven build edilirken her şeyi silip en baştan yüklemeye çalıştığı için daha uzun süreler boyunca beklememizi gerektiriyorken, Gradle, cache mekanizması sayesinde sadece değişikliklerin yapıldığı kısımları build ederek zamandan tasarruf sağlıyor. Bunu Virtual DOM muhabbetine benzetebiliriz bence. <br/>
+
+### 20-) Exception ve Error nedir? Hangisi, nasıl handle edilebilir? <br/>
+Error'lar handle edilemezler. Bunun sebebi OutOfMemory, StackOverFlow gibi donanımsal hatalar alınmasıdır. I/O Errorlar da bu kategoriye girer.<br/>
+Fakat Exception sınıfı kesinlikle handle edilebilirler ve doğru bir şekilde kullanılırlarsa uygulamayı yönlendirebilirler.<br/>
+Örneğin, NullPointerException için ```Optional``` sınıfı kullanılabilir, veya ```try-catch``` bloğuyla exception yakalanarak ilgili hata hakkında bilgi mesajları verilebilir. <br/>
+Exceptionlar unchecked ve checked olmak üzere iki gruba ayrılırlar. Checked exceptionlarda ilgili exception try-catch bloğuyla yakalanıp bilgi verilmelidir. Ancak Unchecked Exceptionlarda böyle bir zorunluluk yoktur compile time da kontrol edilmedikleri için. <br/>
+Herkesi mutlu etmek adına, yine de tüm Exceptionların ```try-catch/try-with-resources``` bloklarıyla kontrol altına alınmaları önemlidir. <br/>
+
+### 21-) try-with-resources nedir? try-catch-finally bloğundan farkı nedir? <br/>
+Try-catch-finally bloklarını tanıyarak başlayalım.<br/>
+Try bloğunda belli başlı bir mantığa göre kodlar işlenir, fırlatılan bir Exception olursa catch bloğunda bu Exception yakalanır ve handle edilir. Ardından finally bloğuyla Exception alınsa da alınmasa da son işlemler gerçekleştirilir ve ```try-catch-finally``` bloğu tamamlanır. <br/>
+```try-with-resources``` bloğunda ise şu şekilde bir kod bloğu görmemiz mümkündür. <br/>
+
+```
+ try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            br.readLine();
+        }
+        catch (IOException e) {
+            System.out.println("exception occured: "+e);
+        }
+```
+<br/>
+
+Bu kod bloğunda try parantezleri içerisinde tanımlanan BufferedReader classına ait nesne aslında bir  ```AutoClosable```  nesnesidir. JVM AutoClosable nesnelerinin otomatik olarak kapanmalarını sağlar. İsmindeki resources'da buradan gelir. Kapatılması gereken herhangi bir kaynak varsa (database bağlantıları gibi) JVM bunu try-with-resources bloğuyla handle edebilir. <br/>
