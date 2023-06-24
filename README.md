@@ -83,15 +83,35 @@ Uygulamanın çalışır haline son sağlıklı commite giderek ulaşabiliriz. H
 ### 11-) Backend uygulamanın testlerini neyle yazarız? Sen test yazarken ne kullanıyorsun? (Burada test yazmak hakkında ne düşündüğüm ölçüldü bence) <br/> 
 JUnit, Java'da en çok kullanılan test frameworkü. Ben de uygulamalarımı JUnit kullanarak yazıyorum. Anotasyon bazlı testler yapılabilir, her testten önce ve sonrasında ne yapılacağı belirlenebilir. JUnit bu geliştirmeleri kolaylastiriyor ve sadece business-logic'e bağlı kalmamızı sağlıyor. <br/>
 
-### 12-) Transaction Nedir?
-Transactionlar bir işlemler bütününü ifade eder. Veritabanlarındaki Transaction, Insert,Update gibi sorguların herhangi birinde hata çıkması halinde, o işlemin ROLLBACK edilmesini sağlar. Transactiondaki operasyonların her birinin(Insert,Update) gibi işlemlerin başarılı olması halinde ise Transaciton'ı commitler. Bu sayede ACID kavramı da sağlanmış olur.
-A. Atomicy: Tüm işlemler başarılı olduğu taktirde Transaction onaylanır. Bu Bölünmezliği sağlar.
-C. Consistency: Tutarlılık, Transaction tamamlanana ve commit edilene kadar karşımıza çıkan değerler aynıdır. Ancak transaction bitince etkilenir ve değişir. Bu da tutarlılığı sağlar.
-I. Isolation: Dış müdahaleye kapalıdır. Başka bir transaction'dan etkilenmez. Kendini bu sayede izole eder.
-D. Durability: ROLLBACK yapan mekanizmadır. 
+### 12-) Transaction Nedir? <br/>
+Transactionlar bir işlemler bütününü ifade eder. Veritabanlarındaki Transaction, Insert,Update gibi sorguların herhangi birinde hata çıkması halinde, o işlemin ROLLBACK edilmesini sağlar. Transactiondaki operasyonların her birinin(Insert,Update) gibi işlemlerin başarılı olması halinde ise Transaciton'ı commitler. Bu sayede ACID kavramı da sağlanmış olur. <br/>
+A. Atomicy: Tüm işlemler başarılı olduğu taktirde Transaction onaylanır. Bu Bölünmezliği sağlar. <br/>
+C. Consistency: Tutarlılık, Transaction tamamlanana ve commit edilene kadar karşımıza çıkan değerler aynıdır. Ancak transaction bitince etkilenir ve değişir. Bu da tutarlılığı sağlar. <br/>
+I. Isolation: Dış müdahaleye kapalıdır. Başka bir transaction'dan etkilenmez. Kendini bu sayede izole eder. <br/>
+D. Durability: ROLLBACK yapan mekanizmadır. <br/>
 
-### 13-) AOP Nedir?
+### 13-) AOP Nedir?<br/>
 Aspect Oriented Programming bir programlama paradigmasıdır. Bu paradigmayla, tekrar eden kod kalabalığının önüne geçilmesi ve kodun maliyetinin düşürülmesi hedeflenmektedir. <br/>
 Cross Cutting Concern nedir? <br/>
 Uygulamanın herhangi bir bölümünde ``` logging, performance, transaction management, security, caching, validation, exception handling``` gibi işlemler gerçekleştirilebilir. CCC, o bölgelerden bağımsız olarak bu tarz sürekli kullanılan kod bloklarının işlemlerini gerçekleştirir. <br/>
 AOP ise, CCC uygulayan bir paradigmadır. <br/>
+
+### 14-) IoC Container Nedir? <br/>
+Spring Framework'ün çatısı olan IoC Container program akışını ve Bean yaşam döngüsünü kontrol eder. <br/>
+Uygulama başlatıldığında tüm dosyaları tarar ve anotasyonlarla işaretlenen Classları tarayıp Bean'leri ayıklar. Bu Bean'lerin instance'larını Singleton olacak şekilde oluşturur ve Application Context e yükler. <br/>
+Application Context, bir memory gibi davranır. IoC prensiplerinin uygulamasıdır. <br/>
+
+### 15-) Dependency Injection Nedir? <br/>
+Dependency Injection, birbirine ihtiyaç duyan sınıfların injection'ını loosely-coupled olacak şekilde sağlar. Uygulamamızdaki katmanların bağımlılıklarının okunabilirliğini arttırır. <br/>
+Bu ifadeyi daha da Türkçeleştirelim ve anlam kazandıralım. <br/>
+Dependency Injection'ın Constructor Injection, Setter, Field gibi Injection yöntemleri mevcut. <br/>
+Örneğin, bir servis başka bir servisin metotlarına ihtiyaç duysun. Bu case sıklıkla karşımıza çıkan bir casedir. Muhtemelen ihtiyaç duyan ve ihtiyaç duyulan servisler @Service anotasyonu ile işaretlenmiştir ve IoC Container tarafından Application Contexte yüklenmiş ve instanceı oluşturulmuştur. <br/>
+Dependency Injection pattern'ı ise bu ihtiyaç duyan servisin constructor'ına/setter'ına ihtiyaç duyulan servisin instance'ının inject edilmesidir. <br/>
+
+### 16-) IoC Container ile Dependency Injection farkı nedir? <br/>
+IoC Container ve Dependency Injection Spring Framework'ün kullandığı patternlardır. <br/>
+Temel farkları ise, IoC Container Bean oluşturma ve yönetme işlemlerinden sorumluyken, DI bu Beanler'in Inject edilmesinden sorumludur. <br/>
+Her defasında bir bağımlılığa sahip olan servis içerisinden ```new``` keywordü ile nesne oluşturamayız. <br/>
+Application Context'te oluşturulan Bean instance'ını tekrar tekrar kullanabilir ve inject edebiliriz. <br/>
+Oluşturma ve yönetme işi IoC Container sorumluluğundayken, Inject etme yöntemleri Dependency Injection sorumluluğundadır. <br/>
+
