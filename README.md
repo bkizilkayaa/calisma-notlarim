@@ -164,3 +164,39 @@ Ancak thread-safe çalışmamız gerekmiyorsa HashMap kullanılması Java doküm
 ### 23-) Set veri yapısı nedir? <br/>
 Set bir Collection interfaceinin implementasyonudur. <br/>
 İçerisinde duplicate veri barındırmayan, buna izin vermeyen bir veri yapısıdır. <br/>
+
+### 24-) Spring Data JPA ve Hibernate farkı nedir? <br/>
+Spring Data JPA, Hibernate ve Eclipse Link gibi JPA sağlayıcılarını kullanarak repository katmanında CRUD işlemlerinin implementasyonlarını kolaylaştıran bir çerçevedir. <br/>
+Hibernate ise JPA implementasyonlarından birisidir, sadece CRUD işlemlerinde gerekli kod kalabalığının önüne geçilmek için Spring Data JPA tarafından üstüne eklemeler yapılarak implementasyonları daha kolay bir hale getirilmiştir. <br/>
+
+### 25-) SOLID prensipleri nelerdir? Örneklendirerek anlatabilir misin? <br/>
+
+Single Responsibility : Her bir servisin, methodun, classın sadece tek bir işten sorumlu olması gerektiğini savunan bir prensiptir. Fazlalıklar ayrıştırılmalıdır. <br/>
+
+Open/Closed Prenciple :  Bu prensip, kodun geliştirmeye açık fakat değişikliklere kapalı olması gerektiğini savunur. Örneğin her bir durum için yeni yeni if/else statement'lar oluşuyorsa, bu kod değişiklik yapılması gereken bir koddur. <br/> 
+Bu durumun önüne geçmek için Interface'lerin gücünden faydalanıyoruz. <br/>
+Yazdığımız interface her class tarafından gerekli lojiklerle kendi içinde implemente edilerek Genel bir Tip oluşturulabilir.
+(Ara katmanda Interface kullanılarak bu prensip uygulamaya koyulabilir.) <br/>
+
+Liskov Substitution : Liskov değişim prensibi. Bu prensip, alt sınıfların her birinin, üst sınıfların yerine kullanılabilir olması gerektiğini savunur. Yani, bir üst sınıfın nesnesi yerine alt sınıfın nesnesi kullanıldığında, programın beklenen şekilde çalışması gerekir. <br/>
+
+Interface Segregation : Interface segregation, interfaceler onları implement eden classları bir fonksiyonu yorumlamalarına zorlamamalıdır. Bir interface içinde çokça method varsa bu interface küçük parçalara bölünmeli ve İsteyen classlara implement edilmelidir. Bu sayede İnterfaceler ayrılığı sağlanır. <br/>
+
+Dependency Inversion : Bağımlılıkların terse çevrilmesi olarak Türkçeleştirilebilir. <br/>
+Yüksek seviyeli sınıfların düşük seviyeli sınıfları soyut halleriyle kullanmasıdır. Bu da bağımlılığın düşmesini sağlamaktadır. <br/>
+Örneğin Mail Service sınıfının Gmail,Hotmail,Yandex gibi sınıflardan mail atabilir olduğu varsayılsın. Bu servis sadece Gmaile ya da Hotmaile bağımlı olmamalıdır. Veyahut yeni bir Gönderim yöntemi eklendiğinde tekrardan Servis içinde kodların değiştirilmemesi gerekmektedir. O yüzden araya bir Interface atılır. IMailService Interfacei ile tüm gönderim yöntemleri bu interface i implement eder ve Servisimiz artık küçük sınıflarınaa bağımlı olmaz. Soyut halleriyle ilgilenir. <br/>
+
+### 26-) DRY prensibi nedir? <br/>
+DRY prensibi, Don't Repeat Yourself'ten gelir. Bu prensibin ihlali olarak, her bir instance için aynı fonksiyonları tekrar tekrar çalıştırmak örnek olarak verilebilir. Bunun yerine kendimizi tekrar etmeyecek şekilde, tek bir fonksiyonda bu işlemler yapılabilir. <br/>
+Örneğin bir Interface oluşturarak bu sınıfların o metodu implement etmesi sağlanabilir. Ardından tek bir döngüyle tüm bu classlar gezilip o metotlar ve implementasyonları çağırılabilir. <br/>
+
+### 27-) KISS prensibi nedir? <br/>
+Bu prensip "Keep It Simple, Stupid"'den gelmektedir. Bir methoda gereğinden fazla geliştirme yapılmamalıdır. İleride şu da olabilir mi acaba? düşüncesiyle gereksiz kod kalabalığına sebebiyet verilmemelidir. Minimal davranmaktır. <br/>
+
+### 28-) Design Pattern'lar nedir? Birkaç örnek verebilir misin? <br/>
+Design Pattern'lar yazılım geliştirme süreçlerinde sıklıkla karşılaşılan problemlere çözüm olarak geliştirilmiş kalıplardır. <br/>
+Bu problemler, bir nesne oluşturulurken meydana gelebilirken, bir nesnenin diğer nesneyle olan ilişkisini kontrol etmede de meydana gelebilirler.. <br/>
+Örneğin Singleton Pattern, bir Creational Pattern'dır ve uygulamaya bu classın sadece bir instance ı olacağını garanti eder. <br/>
+Örneğin Builder Pattern, bir Creational Pattern'dır ve karmaşık field'lara sahip classların instancelarını oluştururken çıkacak karışıklığın önüne geçer. fieldları set ede ede oluşturma yöntemidir. <br/>
+Örneğin Factory Pattern, bir Creational Pattern'dır ve alt sınıfların hangi koşullarda oluşturulduğunu client tarafından gizler. Bir FactoryMethod sınıfı yazılır ve o metod içerisindeki parametrelere göre alt sınıf oluşturulup instance'ı dönülür. Bu sayede soyutlama sağlanır. <br/>
+Örneğin Adapter Pattern, bir Structural Pattern'dır ve iki class arasındaki uyumsuzlukları kontrol eder. Bir Adapter classı yazılarak, iki class/interface arasındaki uyumsuzlukları yok etmek amaçlanır. <br/>
