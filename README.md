@@ -154,3 +154,13 @@ Try bloğunda belli başlı bir mantığa göre kodlar işlenir, fırlatılan bi
 <br/>
 
 Bu kod bloğunda try parantezleri içerisinde tanımlanan BufferedReader classına ait nesne aslında bir  ```AutoClosable```  nesnesidir. JVM AutoClosable nesnelerinin otomatik olarak kapanmalarını sağlar. İsmindeki resources'da buradan gelir. Kapatılması gereken herhangi bir kaynak varsa (database bağlantıları gibi) JVM bunu try-with-resources bloğuyla handle edebilir. <br/>
+
+### 22-) HashMap ile HashTable arasındaki farklar nelerdir? <br/>
+HashMap, bir Map implementasyonudur. Key Value çiftinde veri saklar. Burada Key bir Set veri yapısıyken, Value bir List'tir. <br/>
+HashTable ise yine bir Map implementasyonudur. Key Value çiftinde veri saklar. <br/>
+Farkları ise HashTable'ın synchronized çalışmasıdır. Multithread bir yapı kuracaksak HashTable kullanılması önemlidir. <br/>
+Ancak thread-safe çalışmamız gerekmiyorsa HashMap kullanılması Java dokümantasyonunda tavsiye edilir. <br/>
+
+### 23-) Set veri yapısı nedir? <br/>
+Set bir Collection interfaceinin implementasyonudur. <br/>
+İçerisinde duplicate veri barındırmayan, buna izin vermeyen bir veri yapısıdır. <br/>
