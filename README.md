@@ -200,3 +200,48 @@ Bu problemler, bir nesne oluşturulurken meydana gelebilirken, bir nesnenin diğ
 Örneğin Builder Pattern, bir Creational Pattern'dır ve karmaşık field'lara sahip classların instancelarını oluştururken çıkacak karışıklığın önüne geçer. fieldları set ede ede oluşturma yöntemidir. <br/>
 Örneğin Factory Pattern, bir Creational Pattern'dır ve alt sınıfların hangi koşullarda oluşturulduğunu client tarafından gizler. Bir FactoryMethod sınıfı yazılır ve o metod içerisindeki parametrelere göre alt sınıf oluşturulup instance'ı dönülür. Bu sayede soyutlama sağlanır. <br/>
 Örneğin Adapter Pattern, bir Structural Pattern'dır ve iki class arasındaki uyumsuzlukları kontrol eder. Bir Adapter classı yazılarak, iki class/interface arasındaki uyumsuzlukları yok etmek amaçlanır. <br/>
+
+### 29-) Encapsulation Nedir? <br/>
+.... <br/>
+
+### 30-) Encapsulation uygulanırken, setter yazmanın amacı nedir? Zaten datayı manipüle edebiliyorsak neden public setter yazıyoruz? <br/>
+.... <br/>
+
+### 31-) İki sınıfı extends ettiğimizde bir diamond problem söz konusu oluyorken, iki interface'i implement ettiğimizde neden diamond problem söz konusu olmuyor? Yada iki aynı metot imzasından hangisinin çalışacağını nasıl bilebiliyor? <br/>
+... <br/>
+
+### 32-) İki değişkenin yerini, üçüncü bir değişken kullanmadan değiştirebilir miyiz? <br/>
+... <br/>
+
+### 33-) Veritabanında indexing diye bir şey var. Arkada hangi algoritmayı kullanıyor sence? <br/>
+... <br/>
+
+### 34-) StackOverFlow Error'unu ne koşullarda alırız? Stack neden dolar? <br/>
+... <br/>
+
+### 35-) Error ve exceptions arasındaki farklar nelerdir? <br/>
+... <br/>
+
+### 36-) Stack ve Queue arasındaki farklar nelerdir? Stack uygulamamızda ne tarz veriler tutar? <br/>
+... <br/>
+
+### 37-) Kod örneği sorusu <br/>
+... <br/>
+
+### 38-) Ogrenci ve Dersler tablosunda veri tutacağız. Nasıl ilişki kurarız? <br/>
+... <br/>
+
+### 39-) Ogrenci obj= new Ogrenci(); satırında neler gerçekleşir? <br/>
+... <br/>
+
+### 40-) Reference Type-Value Type nedir hiç duydun mu? Farkları nelerdir? <br/>
+... <br/>
+
+### 41-) Fonksiyon çağrıları nasıl çalışır? <br/>
+... <br/>
+
+### 42-) C++ ile Java arasındaki farklar nelerdir? <br/>
+... <br/>
+
+### 43-) C++ta olup Javada olmayan şey nedir? Ya da Java neyi farklı yapar? <br/>
+... <br/>
