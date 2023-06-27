@@ -162,7 +162,7 @@ Farkları ise HashTable'ın synchronized çalışmasıdır. Multithread bir yap�
 Ancak thread-safe çalışmamız gerekmiyorsa HashMap kullanılması Java dokümantasyonunda tavsiye edilir. <br/>
 
 ### 23-) Set veri yapısı nedir? <br/>
-Set bir Collection interfaceinin implementasyonudur. <br/>
+Set interface'i Collection interface'inden kalıtılmıştır. <br/>
 İçerisinde duplicate veri barındırmayan, buna izin vermeyen bir veri yapısıdır. <br/>
 
 ### 24-) Spring Data JPA ve Hibernate farkı nedir? <br/>
