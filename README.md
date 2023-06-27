@@ -202,46 +202,120 @@ Bu problemler, bir nesne oluşturulurken meydana gelebilirken, bir nesnenin diğ
 Örneğin Adapter Pattern, bir Structural Pattern'dır ve iki class arasındaki uyumsuzlukları kontrol eder. Bir Adapter classı yazılarak, iki class/interface arasındaki uyumsuzlukları yok etmek amaçlanır. <br/>
 
 ### 29-) Encapsulation Nedir? <br/>
-.... <br/>
+Kapsülleme, sınıfların propertylerini korumaya almayı amaçlayan OOP'nin 4 prensibinden birisidir. <br/>
+Objelerin manipüle edilip değerlerinin kontrolsüz bir şekilde değiştirilmemesini amaçlar. Dışarıya public/private metotlar açılarak set edilecek olan değerin kontrol altına alınıp, belirli koşullar sağlanırsa set edilmesini sağlar. Bu sayede kontrol altına alınır.
 
 ### 30-) Encapsulation uygulanırken, setter yazmanın amacı nedir? Zaten datayı manipüle edebiliyorsak neden public setter yazıyoruz? <br/>
-.... <br/>
+Zaten public yazılıyor, fakat burada ana amaç set edilecek olan değerlerin kontrol altına alınmasıdır. <br/>
 
 ### 31-) İki sınıfı extends ettiğimizde bir diamond problem söz konusu oluyorken, iki interface'i implement ettiğimizde neden diamond problem söz konusu olmuyor? Yada iki aynı metot imzasından hangisinin çalışacağını nasıl bilebiliyor? <br/>
-... <br/>
+Bunun sebebi, bir interface'in iki interface'i implement etmesi sonucu ikisine de o metodu implement edeceğini bildirmesinden kaynaklanır. Günün sonunda JVM bir şeye karar vermez ve böylelikle diamond-problem oluşmaz. <br/>
+@Override anotasyonu ile başlayan satırda show metodu artık ezilmiştir ve ne iş yapacağı gövdede belirlenebilir. <br/>
+Günün sonunda tek bir implementasyon çalışacağı için JVM bize kızmaz.
+
+<br/>
+
+```
+public class Inheritence implements C{
+    @Override
+    public void show() {
+        System.out.println("inside show method");
+    }
+    
+    public static void main(String[] args) {
+        Inheritence i=new Inheritence();
+        i.show();
+    }
+}
+
+interface A{
+    void show();    
+}
+
+interface B{
+    void show();
+}
+
+interface C extends A,B{}
+``` 
+
+<br/>
 
 ### 32-) İki değişkenin yerini, üçüncü bir değişken kullanmadan değiştirebilir miyiz? <br/>
-... <br/>
+Aritmetik işlemler kullanılarak yapılabilir <br/> 
+Örneğin: 
+
+```
+int a=5;
+int b=10;
+a=a+b; //Bu satırda a=15 olarak atanmıştır
+b=a-b; //Bu satırda b=5 olarak atanmış ve değişiklik sağlanmıştır
+a=a-b; //Bu satırda son aritmetik işlemle a=10 atanarak değişiklik yapılmıştır.
+
+```
+
+<br/>
 
 ### 33-) Veritabanında indexing diye bir şey var. Arkada hangi algoritmayı kullanıyor sence? <br/>
-... <br/>
+Indexing arkada Tree'ler kullanarak aranan key ile value'ya hızlı bir şekilde ulaşmayı sağlar. <br/>
 
 ### 34-) StackOverFlow Error'unu ne koşullarda alırız? Stack neden dolar? <br/>
-... <br/>
+StackOverFlow Error'u memorynin stack bölgesi dolduğunda alıyoruz. Örneğin, rekürsif bir fonksiyona handle edemeyeceği bir değer, veya sonsuz büyüklükte bir değer göndererek fonksiyon çağrıları yaparak Stack taşmasına sebep verebiliriz. <br/>
 
 ### 35-) Error ve exceptions arasındaki farklar nelerdir? <br/>
-... <br/>
+Error alındığında programın işleyişi durur. Hata verir. <br/>
+Ancak Exceptionlar handle edilebilirler. Bu yüzden sağlıklı bir mimaride custom exceptionlar yazılarak bilgiler verilmelidir. <br/>
 
 ### 36-) Stack ve Queue arasındaki farklar nelerdir? Stack uygulamamızda ne tarz veriler tutar? <br/>
-... <br/>
+Stack, LIFO çalışıyor. Yani stack veri yapısına eklenen veri en altta kalacaktır. <br/>
+Queue ise FIFO çalışıyor. Kuyruk veri yapısına eklenen veri en önde yer alır ve ilk çıkan olacaktır. <br/>
 
-### 37-) Kod örneği sorusu <br/>
-... <br/>
+### 37-) Bu kod bloğu compile olur mu? Olursa ne çıktı verir? <br/>
+
+```
+
+public class Test {
+    public void topla(int a, int b) {
+        System.out.println(a + b);
+    }
+
+    public int topla(int a, int b) {
+        int r = a + b;
+        return r;
+    }
+
+}
+    public static void main(String[] args) {
+        Test t1 = new Test();
+        t1.topla(3, 4); //JVM burada karar veremez. Compile Error
+    }
+}
+
+
+``` 
+
+<br/>
+
+Bu kod bloğu compile olmaz, tıpkı diamond problem gibi JVM karar veremez ve compile işlemi gerçekleşmez. Metot imzaları farklı olmalıdır.
+
+<br/>
+
 
 ### 38-) Ogrenci ve Dersler tablosunda veri tutacağız. Nasıl ilişki kurarız? <br/>
-... <br/>
+Bir öğrencinin birçok derse, Birçok dersin de birçok öğrenciyle ilişkilendirilebileceğini düşünürsek, Many-to-Many ilişki söz konusudur. Bunun için Ogrenciler tablosunda id,name,surname,number gibi propertyler bulunuyorken, Dersler tablosunda id,name gibi propertyler bulunabilir. <br/> 
+Bir başka tabloda ise bu iki id değerlerinin birleştiğini ve hangi öğrencinin hangi dersi aldığı bir yapı kurgulayabiliriz.  <br/>
 
 ### 39-) Ogrenci obj= new Ogrenci(); satırında neler gerçekleşir? <br/>
-... <br/>
+Eşitliğin sol tarafında esasen bir işlem gerçekleşmez. Programa, Ogrenci tipinde bir veri tutacağı söylenen bir obj değişkeni tanımlanır. Eşitliğin sağ tarafi ise daha kritiktir. Çünkü Ogrenci nesnesi orada ```new``` keywordü ile oluşturulmaktadır. Referansı ise obj değişkenine atılmaktadır. Artık obj, Ogrenci referansı tutan değişkendir. <br/>
 
 ### 40-) Reference Type-Value Type nedir hiç duydun mu? Farkları nelerdir? <br/>
-... <br/>
+Reference-Type'da referansları gönderilirken, Value-Type'da değerin ta kendisi kopyalanır. Value-Type'da o değer üzerinden yapılan bir değişiklik fonksiyona gönderilen değeri manipüle etmez. Fakat Reference Type değerler, örneğin int[] arrayi, manipüle edilebilirler. 
+<br/>
 
 ### 41-) Fonksiyon çağrıları nasıl çalışır? <br/>
-... <br/>
+Fonksiyon çağrıları şu şekilde çalışıyor, Örneğin A metodu B metodunu, B metodu C metodunu, C metodu D metodunu çağırsın. Çağrılar içiçe açılarak ilerler ve D metodunun dönüş değerinden sonra program C metodunun, C metodunun dönüş değerinden sonra ise B metodunun ve en son A metodunun dönüş değerini okuyarak program sonlanır. Çağrılar içiçe geçmiştir. <br/>
 
-### 42-) C++ ile Java arasındaki farklar nelerdir? <br/>
-... <br/>
-
-### 43-) C++ta olup Javada olmayan şey nedir? Ya da Java neyi farklı yapar? <br/>
-... <br/>
+### 42-) C++ ile Java arasındaki farklar nelerdir? Java neyi farklı yapar? <br/>
+C++ ve Java Object-Oriented dillerdir. C++'ta 84 tane keyword varken Java'da 50 keyword vardır. <br/>
+Java, C++'tan farklı olarak, Object referanslarının heap'ten atılması için bir mekanizma geliştirmiştir. Garbage Collector, artık point edilmeyen objeleri heapten temizler. <br/>
+Ayrıca Java, compatible'dır. Her çalışma ortamında çalışabilir. Bunun sebebi JVM mimarisidir. <br/>
