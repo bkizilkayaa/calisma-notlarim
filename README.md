@@ -315,7 +315,114 @@ Reference-Type'da referansları gönderilirken, Value-Type'da değerin ta kendis
 ### 41-) Fonksiyon çağrıları nasıl çalışır? <br/>
 Fonksiyon çağrıları şu şekilde çalışıyor, Örneğin A metodu B metodunu, B metodu C metodunu, C metodu D metodunu çağırsın. Çağrılar içiçe açılarak ilerler ve D metodunun dönüş değerinden sonra program C metodunun, C metodunun dönüş değerinden sonra ise B metodunun ve en son A metodunun dönüş değerini okuyarak program sonlanır. Çağrılar içiçe geçmiştir. <br/>
 
+
 ### 42-) C++ ile Java arasındaki farklar nelerdir? Java neyi farklı yapar? <br/>
 C++ ve Java Object-Oriented dillerdir. C++'ta 84 tane keyword varken Java'da 50 keyword vardır. <br/>
 Java, C++'tan farklı olarak, Object referanslarının heap'ten atılması için bir mekanizma geliştirmiştir. Garbage Collector, artık point edilmeyen objeleri heapten temizler. <br/>
 Ayrıca Java, compatible'dır. Her çalışma ortamında çalışabilir. Bunun sebebi JVM mimarisidir. <br/>
+
+### 43-) Arrays in Java (Arrayler hakkında doğru olan şıkkı işaretleyiniz.) <br/>
+Bu soru girmiş olduğum hackerrank mülakatında karşıma çıktı, sizinle de paylaşmak istedim. <br/>
+A-) Arrays in Java are essentially objects. <br/>
+B-) It is not possible to assign one array to another. However, individual elements of the array can be assigned. <br/>
+C-) Array elements are indexed from 1 to size of the array. <br/>
+D-) If a method tries to access an array element beyond its range, a compile warning is generated. <br/>
+Bu soruda doğru cevap A şıkkı olmalıdır. Çünkü hiyerarşinin en üstünde olan ```Class``` sınıfına bakacak olursanız şöyle bir açıklama görürsünüz. <br/>
+
+```
+Object is the root of the class hierarchy. Every class has Object as a superclass.
+```
+```
+All objects, including arrays, implement the methods of this class.
+```
+
+<br/> 
+
+"including arrays". <br/>
+
+### 44-) Linked List'te bir eleman aramanın Time Complexity değeri nedir? <br/>
+A-) O(logn) <br/>
+B-) O(n) <br/>
+C-) O(1) <br/>
+D-) O(n2) <br/>
+Bu soruda doğru yanıt B şıkkı O(n) olmalıdır. Yani, listede olmayan bir elemanı arayıp bulmak istediğinizde, en kötü durumda tüm listeyi gezmiş ve elemanı bulamamış olursunuz. <br/>
+
+### 45-) Aşağıdaki kod bloğunda x'in son değeri nedir? <br/>
+
+```
+int x=1;
+for(int i=1;i<=128;i+=i){
+        x+=x;
+}
+```
+
+<br/>
+
+Yukarıdaki kod bloğu, i = 1,2,4,8,16,32,64,128 değerleri için çalışmaktadır. Yani toplam 8 kez döngü çalışır. Döngü çalışmasını tamamlayıp bittiğinde i değeri de x değeri de kendini sürekli ikiye katlayarak gittiği için "256" değerine sahip olacaktır. (2^8 = 256) <br/>
+Dolayısıyla x'in son değeri 256'dır. <br/>
+
+### 46-) Big O notasyonu nedir? <br/>
+A-) identifies the best algorithm to solve a problem. <br/>
+B-) determines maximum size of a problem that can be solved on a system in a given time. <br/>
+C-) is the lower bound of the growth rate of an algorithm. <br/>
+D-) is the lower upper of the growth rate of an algorithm. <br/>
+E-) None of the above. <br/>
+Bu soruda doğru yanıt D şıkkı olacaktır. Çünkü Big O notasyonu, bir algoritmanın worst case'i ile ilgilenir. Dolayısıyla upper bound yani üst sınırla ilgilenilir. Diğer durumlar için (Average,Best case vs) başka notasyonlar mevcuttur. <br/>
+
+### 47-) Which of the following is imported by default? <br/>
+A-) java.lang <br/>
+B-) java.io <br/>
+C-) java.math <br/>
+D-) java.text <br/>
+Bu soruda doğru yanıt A şıkkı olacaktır. Integer, String, StackOverFlow gibi sınıflara sahiptir ve her uygulamada default olarak import edilmiştir. Her sınıfın Object sınıfını default olarak extends etmesi gibi bir durum. <br/>
+
+### 48-) Java'da, erişmek için bir nesneye ihtiyaç duymadığımız sabitleri nasıl tanımlarız? <br/>
+A-) public final int intConst; <br/>
+B-) public static int intConst; <br/>
+C-) public static final int intConst; <br/>
+D-) public int intConst; <br/>
+Static ve Final olursa, sınıftan bir nesne türetmeden, sınıfa özel bir sabit oluşturulabilir. final keywordü bu değişkenin constant olmasını, static keywordü ise sınıfa özgü olmasını sağlar. <br/>
+
+### 49-) Bir A sınıfı, X ve Y arabirim'i olduğunu düşünün. C sınıfı tüm bunları kalıtmak istiyor. Bunu nasıl sağlarız? <br/>
+Doğru yanıt class C extends A implements X,Y olmalıdır. Sınıflar yalnızca bir sınıfı extends keywordü ile kalıtabilir, birden çok interface'i ise implements ile kalıtabilir. <br/>
+
+### 50-) Interface'ler hakkında doğru şık hangisidir? <br/>
+A-) Interface can contain constructors <br/>
+B-) A class can implement just one interface <br/>
+C-) An interface can declare public and protected method only <br/>
+D-) An interface cannot have instance variables <br/>
+Burada A,B,C şıkları oldukça yanlış ifadelerdir. <br/>
+Interface'lerden bir nesne oluşturamadığımız için (java 17den öncesi icin, functional interface olmadıgını vs varsayalim.) yapıcı metotlara ihtiyaç yoktur. <br/>
+Bir class birden çok interface'in özelliğine sahip olabilir. Dolayısıyla B şıkkı da hatalıdır <br/>
+Interfaceler içerisinde protected olarak bir method işaretlenemez. Varsayılan olarak public ve abstract şeklinde işaretlidir. Dolayısıyla C şıkkı da hatalıdır. <br/>
+Fakat D şıkkı doğrudur. Çünkü Interface'ler içerisinde sadece Sınıfa özgü, static ve final değişkenler tanımlayabiliriz. <br/>
+
+### 51-) Look up an element in a Map using a key .... <br/>
+A-) get() <br/>
+B-) look() <br/>
+C-) search() <br/>
+D-) value() <br/>
+Doğru yanıt A şıkkıdır. Map'ler K,V şeklinde Key,Value (Anahtar,Değer) çalışırlar. Burada, değerlere ulaşabilmek için get()  methoduna sahibiz. Onu kullanabiliriz. <br/>
+
+### 52-) Map Interface'ini implement eden sınıflar nelerdir? <br/>
+A-) HashMap <br/>
+B-) DynamicList <br/>
+C-) Stack <br/>
+D-) TreeMap <br/>
+Bu soruda yanıt A ve D şıklarıdır. Her ikisi de seçilmelidir. Çünkü HashMap ve TreeMap bir map implementasyonudur. <br/>
+
+![image](https://github.com/bkizilkayaa/calisma-notlarim/assets/88281419/36a0a052-675b-4a46-8cd8-eed5ea4b5bc5)
+
+<br/>
+
+### 53-) Exception Hiyerarşisinde, en üstte hangisi bulunmaktadır? <br/>
+A-) Throwable <br/>
+B-) Exception <br/>
+C-) Error <br/>
+D-) RuntimeException <br/>
+Bu soruda doğru yanıt, Throwable olmalıdır. Çünkü ..-> <br/>
+
+![image](https://github.com/bkizilkayaa/calisma-notlarim/assets/88281419/1c994792-90d8-43bb-81b6-3006e1230f9c)
+
+<br/>
+
