@@ -426,3 +426,57 @@ Bu soruda doğru yanıt, Throwable olmalıdır. Çünkü ..-> <br/>
 
 <br/>
 
+### 54-) JVM, JRE, JDK nedir? Farklar nelerdir? Her katmanda neler mevcuttur? <br/>
+Hazırlanıyor.. <br/>
+
+### 55-) Java her işletim sisteminde nasıl çalışabiliyor? Her işletim sistemi için ayrı Java dağıtımını mı yüklüyoruz? <br/>
+Hazırlanıyor.. <br/>
+
+### 56-) REST nedir? HTTP ile çalışmak zorunda mıdır? <br/>
+Hazırlanıyor.. <br/>
+### 57-) Garbage Collector nedir? Nasıl çalışır? Farklı garbage collector türleri var mıdır? <br/>
+Hazırlanıyor.. <br/>
+### 58-) System.gc dediğimizde garbage collector çalışır ve null instanceları temizler mi? <br/>
+Hazırlanıyor.. <br/>
+### 59-) CAP Teoremi nedir? <br/>
+Hazırlanıyor.. <br/>
+### 60-) AOP nedir? Hangi anotasyonları vardır ve niçin kullanılır? <br/>
+Hazırlanıyor... <br/>
+### 61-) Serializable nedir? Neden kullanılır? <br/>
+Hazırlanıyor.. <br/>
+### 62-) Boxing, Autoboxing, Unboxing, Wrapper Classes nedir? <br/>
+Hazırlanıyor... <br/>
+### 63-) Entity'nin bir fieldı olarak tutmayacağım değişkeni hangi keyword ile işaretleyebilirim? <br/>
+transient <br/>
+### 64-) Transactioal anotasyonu nedir? PointCut anotasyonu nedir? <br/>
+Hazırlanıyor.. <br/>
+### 65-) TDD Nedir? Kullanılmalı mıdır? Avantajları nelerdir? <br/>
+Hazırlanıyor... <br/>
+### 66-) Pub/Sub pattern nedir? Kafka neyi farklı yapar? <br/>
+Hazırlanıyor... <br/>
+### 67-) Günlük hayattan veya yazılımdan, Stack, Queue ve Tree veri yapılarına örnekler verebilir misin? <br/>
+Hazırlanıyor... <br/>
+### 68-) JVM hangi dille yazılmıştır? Java ile yazılmış olabilir mi? <br/>
+Hazırlanıyor... <br/>
+### 69-) Equals, Hashcode nedir? <br/>
+Hazırlanıyor... <br/>
+### 70-) Neden equals metodunu override edebiliyorum? <br/>
+Hazırlanıyor... <br/>
+### 71-) İki objem var. Name propertyleri ise aynı. Equals ile eşit olup olmadıklarını kontrol ettirirsem nasıl bir sonuç alırım? <br/>
+Hazırlanıyor.. <br/>
+### 72-) Kod çıktısı sorusu? <br/>
+Hazırlanıyor... <br/>
+### 73-) DB tasarlama <br/>
+Hazırlanıyor.. <br/>
+### 74-) Circular Dependencies hatasını nasıl çözeriz? Setter, Constructor hangisinin kullanımı doğru olur? A-> B-> C-> A gibi bir yapı old. düşün. <br/>
+Hazırlanıyor... <br/>
+### 75-) Bir interfacein iki implementasyonu olduğunu düşün? Hangisinin inject edileceğini Spring'e nasıl anlatırız? <br/>
+@Qualifier anotasyonu ile seçilebilir <br/>
+### 76-) IoC nedir? Dependency Injection nedir? <br/>
+Hazırlanıyor.. <br/>
+### 77-) SOLID'de L harfini anlatır mısın? <br/>
+Hazırlanıyor.. <br/>
+### 78-) Maven vs Gradle, neden Gradle daha hızlıysa Maven kullanıyorsun? <br/>
+Hazırlanıyor.. <br/>
+### 79-) application.properties kullanımıyla ilgili bir soru vardı tam hatırlamıyorum soruyu. <br/>
+Hazırlanıyor.. <br/>
